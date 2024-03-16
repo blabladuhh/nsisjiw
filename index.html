@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For You♡</title>
+    <title>For ninotnot</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 50px;
         }
-        #password-input, #name-input {
+        #password-input {
             margin-top: 20px;
             padding: 10px;
             font-size: 16px;
         }
-        #submit-btn, #tap-btn {
+        #submit-btn {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
@@ -27,26 +27,26 @@
     </style>
 </head>
 <body>
-    <h1>For You♡</h1>
+    <h1>For ninotnot</h1>
 
     <div id="password-form">
-        <label for="password-input">In what month were you born? (Please type in all lowercase)</label>
-        <input type="text" id="password-input" placeholder="Enter month">
+        <label for="password-input">Kode chromosome perempuan (type with uppercase):</label>
+        <input type="password" id="password-input" placeholder="Enter password">
         <br>
         <button id="submit-btn" onclick="checkPassword()">Submit</button>
     </div>
 
-    <div id="name-form" style="display: none;">
-        <label for="name-input">What's your name?</label>
-        <input type="text" id="name-input" placeholder="Enter your name">
-        <br>
-        <button id="submit-name-btn" onclick="checkName()">Submit</button>
-    </div>
-
     <div id="question-form" style="display: none;">
-        <p>Do you like Harry Potter?</p>
+        <p>Apakah amanda baik hati dan tidak sombong?</p>
         <button id="yes-btn" onclick="showGif()">Yes</button>
         <button id="no-btn" onclick="endStory()">No</button>
+    </div>
+
+    <div id="answer-form" style="display: none;">
+        <label for="answer">Sebuah kelapa memiliki massa 2 kg berada pada ketinggian 20 meter dengan gravitasi 10 ms, berapa energi potensialnya? (jawab angka aja gausah pake satuan)</label>
+        <input type="text" id="answer-input" placeholder="Enter your answer">
+        <br>
+        <button id="submit-answer-btn" onclick="checkAnswer()">Submit</button>
     </div>
 
     <div id="gif-container">
@@ -56,41 +56,38 @@
     </div>
 
     <div id="video-container" style="display: none;">
-        <!-- Replace 'your_video_url' with the actual URL of your video -->
         <iframe width="560" height="315" src="https://drive.google.com/file/d/1g-sC9LUr8Ozgh3F0MlVEBcVkZNuzI-cH/preview" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <script>
         function checkPassword() {
-            var passwordInput = document.getElementById("password-input").value.toLowerCase();
-            var correctPassword = "december";
+            var passwordInput = document.getElementById("password-input").value.trim();
 
-            if (passwordInput === correctPassword) {
-                // Show the name form after entering the correct password
+            if (passwordInput === "XX") {
+                // Show the question form after entering the correct password
                 document.getElementById("password-form").style.display = "none";
-                document.getElementById("name-form").style.display = "block";
+                document.getElementById("question-form").style.display = "block";
             } else {
                 alert("Incorrect password. Please try again.");
             }
         }
 
-        function checkName() {
-            var nameInput = document.getElementById("name-input").value.toLowerCase();
-            var correctName = "sarah";
+        function checkAnswer() {
+            var answerInput = document.getElementById("answer-input").value.trim();
 
-            if (nameInput === correctName) {
-                // Show the question form after entering the correct name
-                document.getElementById("name-form").style.display = "none";
-                document.getElementById("question-form").style.display = "block";
+            if (answerInput === "400") {
+                // Show the gif container and tap button
+                document.getElementById("answer-form").style.display = "none"; // Hide the answer form
+                document.getElementById("gif-container").style.display = "block";
             } else {
-                alert("Incorrect name. Please try again.");
+                alert("Incorrect answer. Please try again.");
             }
         }
 
         function showGif() {
-            // Show the gif container and tap button
+            // Show the answer form after entering the correct answer
             document.getElementById("question-form").style.display = "none";
-            document.getElementById("gif-container").style.display = "block";
+            document.getElementById("answer-form").style.display = "block";
         }
 
         function showVideo() {
